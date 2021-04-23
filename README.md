@@ -10,10 +10,9 @@ ___
 ___
 ## *Description*    
 ### *A React application for a taproom to manage their kegs. A user can see all available kegs and their details as well as add and remove kegs as needed.*
-## *Taproom Component Diagram*
-<p align="center">
+## *Component Diagram*
 <img alt="Taproom Component Diagram" src="https://i.imgur.com/YN4D2v8.png">
-</p>
+
 ## *Setup/Installation instructions*
 ### *From the web*
 * Go to the GitHub repository for this project: [https://github.com/Pingel88/taproom.git](https://github.com/Pingel88/taproom.git)
