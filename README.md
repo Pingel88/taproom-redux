@@ -19,7 +19,7 @@ ___
 * At the top of the repository, click <img src="https://i.imgur.com/Ej9Dphm.png" alt="Code Button" height="20" align="center"> then select "Download ZIP"
 
   <img src="https://i.imgur.com/tZKvGne.gif" alt="download zip gif" height="200">
-* Unzip the file, navigate to the **'Taproom'** folder to view code
+* Unzip the file, navigate to the **'taproom'** folder to view code
 ### *From the terminal*
 * Clone my repository from GitHub using `git clone https://github.com/Pingel88/taproom.git` in your terminal or GitBash
 * Navigate to the downloaded folder using `cd` command
