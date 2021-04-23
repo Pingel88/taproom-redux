@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+## <div align="center">Taproom</div>
+#### <div align="center">*Epicodus Week 16 React Project 04/23/2021* </div> 
+***<p align="center">By Mike Pingel***</p>
+<p align="center">
+<img alt="Neckbeards" src="https://forthebadge.com/images/badges/built-by-neckbeards.svg">
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+___
+### This project is not in a complete or portfolio ready state, and should not be considered as representation of professional work.
+___
+## *Description*    
+### *A RESTful API application to manage park data for state or national parks. An unauthorized user can perform a GET request to retrieve park data stored in a MySQL database. A user authorized with JWT can create, update, and delete park data.*
 
-## Available Scripts
+## *Setup/Installation instructions*
+### *From the web*
+* Go to the GitHub repository for this project: [https://github.com/Pingel88/Taproom.git](https://github.com/Pingel88/Taproom.git).
+* At the top of the repository, click <img src="https://i.imgur.com/Ej9Dphm.png" alt="Code Button" height="20" align="center"> then select "Download ZIP".
 
-In the project directory, you can run:
+  <img src="https://i.imgur.com/tZKvGne.gif" alt="download zip gif" height="200">
+* Unzip the file, navigate to the **'ParkQuest'** folder to view code.
+### *From the terminal*
+* Clone my repository from GitHub using `git clone https://github.com/Pingel88/Taproom.git` in your terminal or GitBash
+* Navigate to the downloaded folder using `cd` command
+* Execute `code .` command in your terminal and it will open all source code in your code editor.
 
-### `npm start`
+### ⚠️*Note*⚠️
+To run this project locally you will need to have .NET Core, MySQL, and Postman, follow along with the Epicodus C# setup lessons to verify installation.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+###  *Interacting with  Park Quest API*
+A frontend UI is not available for this project. To interact with the API utilizing Postman:
+* Rename **EDITMEappsettings.json** in the **'ParkQuest'** folder to **appsettings.json**
+* Open **appsettings.json** in VS Code or Notepad
+  * Enter your password in the "DefaultConnection" string (replacing `[PASSWORD]`)
+  * Generate a 32 alpha-numeric character string from https://www.browserling.com/tools/random-string or enter your own 32 alpha-numeric characters ("a-z", "A-Z", "0-9") in the "Secret" string (replacing `[SECRET]`) and save the file
+* Create a new database using migration through Entity
+  * Navigate to the **'ParkQuest'** folder in your terminal
+  * Enter `dotnet ef database update`
+* Enter `dotnet run` in your terminal while inside the **'ParkQuest'** folder
+* Open Postman and enter the API calls described below
+### Using the JSON Web Token
+In order to be authorized to use the POST, PUT, DELETE functionality of the API, please authenticate yourself through Postman.
+* Open Postman and create a POST request using the URL: `http://localhost:5000/api/authmanagement/register`
+* Add the following query with a preferred username, email, and password to the request as raw data in the Body tab:
+```
+{
+    "username": "[USERNAME]",
+    "email": "[EMAIL@EMAIL.COM]",
+    "password": "[PASSWORD]"
+}
+```
+* The token will be generated in the response. Copy and paste it as the Bearer Token paramenter in the Authorization tab.
+* If your token expires, log in with a POST request using the following URL: `http://localhost:5000/api/authmanagement/login`
+* Add the following query with your email and password to the request as raw data in the Body tab:
+```
+{
+    "email": "[EMAIL@EMAIL.COM]",
+    "password": "[PASSWORD]"
+}
+```
+* The token will be generated in the response. Copy and paste it as the Bearer Token paramenter in the Authorization tab.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Endpoints
+Base URL: `http://localhost:5000`
 
-### `npm test`
+#### Example Query
+```
+http://localhost:5000/api/parks/8
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Sample JSON Response
+```
+{
+    "parkId": 8,
+    "name": "Cascadia",
+    "parkType": "State",
+    "hasRestrooms": "No"
+}
+```
 
-### `npm run build`
+#### HTTP Request
+```
+GET /api/parks
+POST /api/parks
+GET /api/parks/{id}
+PUT /api/parks/{id}
+DELETE /api/parks/{id}
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Path Parameters
+| Parameter | Type | Default | Required | Description |
+| :---: | :---: | :---: | :---: | --- |
+| name | string | none | false | Return matches by name
+| parktype | string | none | false | Return parks matching only park type - **NOTE:** Value can only be "state" or "national" |
+| hasrestrooms | string | none | false | Return parks matching restroom status - **NOTE:** Value can only be "yes", "no", or "unknown"|
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Example Query
+```
+http://localhost:5000/api/parks/?parktype=state&hasrestrooms=no
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Sample JSON Response
+```
+{
+    "parkId": 8,
+    "name": "Cascadia",
+    "parkType": "State",
+    "hasRestrooms": "No"
+},
+{
+    "parkId": 12,
+    "name": "Ecola",
+    "parkType": "State",
+    "hasRestrooms": "No"
+},
+{
+    "parkId": 13,
+    "name": "Cottonwood Canyon",
+    "parkType": "State",
+    "hasRestrooms": "No"
+}
+```
 
-### `npm run eject`
+## *Technologies used*
+* C# 9
+* .NET v5.0
+* MySQL & MySQL Workbench
+* <span>ASP.</span>NET Core API
+* Entity Framework Core
+* Identity
+* JWT
+* Postman
+* REPL
+* Git & GitHub
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## *Known bugs*
+* JWT validations are currently relaxed while the project is in development. A token will last 6 hours and does not automatically refresh.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contact Information
+[![Ask Me Anything !](https://img.shields.io/badge/Ask%20me-anything-1abc9c.svg)](mailto:mdpingel+github@gmail.com?subject=[GitHub]Epicodus%20Project%20-%20ParkQuest.Solution)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## *License and copyright*
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+***© Michael Pingel, 2021***
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
