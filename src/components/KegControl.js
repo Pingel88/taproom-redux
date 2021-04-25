@@ -48,6 +48,18 @@ class KegControl extends React.Component {
     });
   }
 
+  handleRemovingPint = (id) => {
+    const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
+    const updatedKeg = {name: selectedKeg.name, price: selectedKeg.price, alcoholContent: selectedKeg.alcoholContent, pintsRemaining: selectedKeg.pintsRemaining - 1, id: selectedKeg.id};
+    const kegIndex = this.state.mainKegList.indexOf(selectedKeg);
+    const startMainKegList = this.state.mainKegList.slice(0, kegIndex);
+    const endMainKegList = this.state.mainKegList.slice(kegIndex + 1);
+    const editedMainKegList = startMainKegList.concat(updatedKeg).concat(endMainKegList);
+    if (selectedKeg.pintsRemaining > 0){
+      this.setState({mainKegList: editedMainKegList});
+    }
+  }    
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
@@ -65,7 +77,8 @@ class KegControl extends React.Component {
       currentlyVisibleState =
       <KegList
         kegList={this.state.mainKegList}
-        onKegSelection={this.handleChangingSelectedKeg} />;
+        onKegSelection={this.handleChangingSelectedKeg}
+        onClickingRemovePint={this.handleRemovingPint} />;
       buttonText = 'Add Keg';
     }
     return (
