@@ -22,12 +22,14 @@ function NewKegForm(props){
           type='number'
           name='price'
           step='0.01'
+          min='0'
           autocomplete='off'
           placeholder='Price per pint'
           required />
         <input
           type='number'
           name='alcoholContent'
+          min='0'
           autocomplete='off'
           placeholder='Alcohol content'
           required />        
