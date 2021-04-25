@@ -16,7 +16,8 @@ function NewKegForm(props){
           type='text'
           name='brand'
           autocomplete='off'
-          placeholder='Brand' />
+          placeholder='Brand'
+          required />
         <input
           type='number'
           name='price'
@@ -28,7 +29,8 @@ function NewKegForm(props){
           type='number'
           name='alcoholContent'
           autocomplete='off'
-          placeholder='Alcohol content' />        
+          placeholder='Alcohol content'
+          required />        
         <button type='submit'>Add Keg</button>
       </form>
     </React.Fragment>
