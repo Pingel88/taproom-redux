@@ -50,7 +50,7 @@ class KegControl extends React.Component {
 
   handleRemovingPint = (id) => {
     const selectedKeg = this.state.mainKegList.filter(keg => keg.id === id)[0];
-    const updatedKeg = {name: selectedKeg.name, price: selectedKeg.price, alcoholContent: selectedKeg.alcoholContent, pintsRemaining: selectedKeg.pintsRemaining - 1, id: selectedKeg.id};
+    const updatedKeg = {name: selectedKeg.name, brand: selectedKeg.brand, price: selectedKeg.price, alcoholContent: selectedKeg.alcoholContent, pintsRemaining: selectedKeg.pintsRemaining - 1, id: selectedKeg.id};
     const kegIndex = this.state.mainKegList.indexOf(selectedKeg);
     const startMainKegList = this.state.mainKegList.slice(0, kegIndex);
     const endMainKegList = this.state.mainKegList.slice(kegIndex + 1);
