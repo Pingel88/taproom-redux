@@ -9,13 +9,13 @@ function NewKegForm(props){
         <input
           type='text'
           name='name'
-          autocomplete='off'
+          autoComplete='off'
           placeholder='Name'
           required />
         <input
           type='text'
           name='brand'
-          autocomplete='off'
+          autoComplete='off'
           placeholder='Brand'
           required />
         <input
@@ -23,14 +23,14 @@ function NewKegForm(props){
           name='price'
           step='0.01'
           min='0'
-          autocomplete='off'
+          autoComplete='off'
           placeholder='Price per pint'
           required />
         <input
           type='number'
           name='alcoholContent'
           min='0'
-          autocomplete='off'
+          autoComplete='off'
           placeholder='Alcohol content'
           required />        
         <button type='submit'>Add Keg</button>
