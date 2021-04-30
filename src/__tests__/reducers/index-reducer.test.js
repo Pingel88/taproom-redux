@@ -11,7 +11,8 @@ describe ('rootReducer', () => {
   test('Should return a default state if no action type is recognized', () => {
     expect(rootReducer({}, { type: null })).toEqual({
       mainKegList: {},
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      selectedKeg: {}
     });
   });
 
