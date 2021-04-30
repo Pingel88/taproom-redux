@@ -1,4 +1,4 @@
-import formVisibleReducer from '../../reducers/form-visible-reducer';
+import formVisibleReducer from './../../reducers/form-visible-reducer';
 import * as c from './../../actions/ActionTypes';
 
 describe ('formVisibleReducer', () => {
