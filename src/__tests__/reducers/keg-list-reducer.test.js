@@ -8,7 +8,7 @@ describe('kegListReducer', () => {
       brand: 'Testweiser',
       price: 6.99,
       alcoholContent: 7,
-      remainingPints: 124,
+      pintsRemaining: 124,
       id: 'abc-123'
     },
     'xyz-890': {
@@ -16,7 +16,7 @@ describe('kegListReducer', () => {
       brand: 'Deleteweiser',
       price: 4.99,
       alcoholContent: 99,
-      remainingPints: 124,
+      pintsRemaining: 124,
       id: 'xyz-890'
     }
   }
@@ -28,7 +28,7 @@ describe('kegListReducer', () => {
     brand: 'Testweiser',
     price: 6.99,
     alcoholContent: 7,
-    remainingPints: 124,
+    pintsRemaining: 124,
     id: 'abc-123'
   };
   test('Should return default state if there is no action type passed into the reducer', () => {
@@ -36,14 +36,14 @@ describe('kegListReducer', () => {
   });
 
   test('Should successfully add new keg data to mainKegList', () => {
-    const { name, brand, price, alcoholContent, remainingPints, id } = kegData;
+    const { name, brand, price, alcoholContent, pintsRemaining, id } = kegData;
     action = {
       type: 'ADD_KEG',
       name: name,
       brand: brand,
       price: price,
       alcoholContent: alcoholContent,
-      remainingPints: remainingPints,
+      pintsRemaining: pintsRemaining,
       id: id
     };
     expect(kegListReducer({}, action)).toEqual({
@@ -52,7 +52,7 @@ describe('kegListReducer', () => {
       brand: brand,
       price: price,
       alcoholContent: alcoholContent,
-      remainingPints: remainingPints,
+      pintsRemaining: pintsRemaining,
       id: id
       }
     });
@@ -69,7 +69,7 @@ describe('kegListReducer', () => {
         brand: 'Testweiser',
         price: 6.99,
         alcoholContent: 7,
-        remainingPints: 124,
+        pintsRemaining: 124,
         id: 'abc-123'
       }
     });
