@@ -2,6 +2,7 @@ import React from 'react';
 import NewKegForm from './NewKegForm';
 import KegList from './KegList';
 import KegDetail from './KegDetail';
+import { connect } from 'react-redux';
 
 class KegControl extends React.Component {
 
@@ -9,7 +10,6 @@ class KegControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainKegList: [],
       selectedKeg: null
     };
   }
@@ -28,9 +28,19 @@ class KegControl extends React.Component {
   }
 
   handleAddingNewKegToList = (newKeg) => {
-    const newMainKegList = this.state.mainKegList.concat(newKeg);
+    const { dispatch } = this.props;
+    const { name, brand, price, alcoholContent, pintsRemaining, id } = newKeg;
+    const action = {
+      type: 'ADD_KEG',
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      remainingPints: remainingPints,
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      mainKegList: newMainKegList,
       formVisibleOnPage: false
     });
   }
@@ -41,9 +51,13 @@ class KegControl extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newMainKegList = this.state.mainKegList.filter(keg => keg.id !== id);
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_TICKET',
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      mainKegList: newMainKegList,
       selectedKeg: null
     });
   }
@@ -90,5 +104,7 @@ class KegControl extends React.Component {
   }
 
 }
+
+KegControl = connect()(KegControl);
 
 export default KegControl;
