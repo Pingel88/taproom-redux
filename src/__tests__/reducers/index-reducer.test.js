@@ -1,4 +1,8 @@
 import rootReducer from '../../reducers/index';
+import { createStore } from 'redux';
+import kegListReducer from '../../reducers/keg-list-reducer';
+
+let store = createStore(rootReducer);
 
 describe ('rootReducer', () => {
 
@@ -7,5 +11,9 @@ describe ('rootReducer', () => {
       mainKegList: {},
       formVisibleOnPage: false
     });
+  });
+
+  test('Check that the initial state of kegListReducer matches root reducer', () => {
+    expect(store.getState().mainKegList).toEqual(kegListReducer(undefined, { type: null }));
   });
 });
