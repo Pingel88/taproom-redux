@@ -16,7 +16,7 @@ describe ('Taproom actions', () => {
   });
 
   it('addKeg should create ADD_KEG action', () => {
-    expect(actions.addTicket({
+    expect(actions.addKeg({
       name: 'TestBeer',
       brand: 'Testweiser',
       price: 6.99,
