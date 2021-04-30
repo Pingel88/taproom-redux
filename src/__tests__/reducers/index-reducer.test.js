@@ -2,6 +2,7 @@ import rootReducer from './../../reducers/index';
 import { createStore } from 'redux';
 import kegListReducer from './../../reducers/keg-list-reducer';
 import formVisibleReducer from './../../reducers/form-visible-reducer';
+import selectedKegReducer from './../../reducers/selected-keg-reducer';
 import * as c from './../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
@@ -44,5 +45,9 @@ describe ('rootReducer', () => {
     }
     store.dispatch(action);
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));
+  });
+
+  test('Check that the initial state of selectedKegReducer matches root reducer', () => {
+    expect(store.getState().selectedKeg).toEqual(selectedKegReducer(undefined, { type: null }));
   });
 });
