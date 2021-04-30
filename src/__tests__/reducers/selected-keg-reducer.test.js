@@ -34,12 +34,12 @@ describe('selectedKegReducer', () => {
       id: 'xyz-890'
     };
     expect(selectedKegReducer(currentState, action)).toEqual({
-        name: 'SelectBeer',
-        brand: 'Selectweiser',
-        price: 6.99,
-        alcoholContent: 7,
-        pintsRemaining: 124,
-        id: 'abc-123'
+      name: 'SelectBeer',
+      brand: 'Selectweiser',
+      price: 4.99,
+      alcoholContent: 99,
+      pintsRemaining: 124,
+      id: 'xyz-890'
     });
   });
 });
