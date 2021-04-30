@@ -6,6 +6,12 @@ describe ('Taproom actions', () => {
     expect(actions.deleteKeg('abc-123')).toEqual({
       type: 'DELETE_KEG',
       id: 'abc-123'
-    })
-  })
+    });
+  });
+
+  it('toggleForm should create TOGGLE_FORM action', () => {
+    expect(actions.toggleForm()).toEqual({
+      type: 'TOGGLE_FORM'
+    });
+  });
 })
