@@ -14,4 +14,23 @@ describe ('Taproom actions', () => {
       type: 'TOGGLE_FORM'
     });
   });
-})
+
+  it('addKeg should create ADD_KEG action', () => {
+    expect(actions.addTicket({
+      name: 'TestBeer',
+      brand: 'Testweiser',
+      price: 6.99,
+      alcoholContent: 7,
+      pintsRemaining: 124,
+      id: 'abc-123'
+    })).toEqual({
+      type: 'ADD_KEG',
+      name: 'TestBeer',
+      brand: 'Testweiser',
+      price: 6.99,
+      alcoholContent: 7,
+      pintsRemaining: 124,
+      id: 'abc-123'
+    });
+  });
+});
