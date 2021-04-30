@@ -15,19 +15,19 @@ ___
 
 ## *Setup/Installation instructions*
 ### *From the web*
-* Go to the GitHub repository for this project: [https://github.com/Pingel88/taproom.git](https://github.com/Pingel88/taproom.git)
+* Go to the GitHub repository for this project: [https://github.com/Pingel88/taproom-redux.git](https://github.com/Pingel88/taproom-redux.git)
 * At the top of the repository, click <img src="https://i.imgur.com/Ej9Dphm.png" alt="Code Button" height="20" align="center"> then select "Download ZIP"
 
   <img src="https://i.imgur.com/tZKvGne.gif" alt="download zip gif" height="200">
-* Unzip the file, navigate to the **'taproom'** folder to view code
+* Unzip the file, navigate to the **'taproom-redux'** folder to view code
 ### *From the terminal*
-* Clone my repository from GitHub using `git clone https://github.com/Pingel88/taproom.git` in your terminal or GitBash
+* Clone my repository from GitHub using `git clone https://github.com/Pingel88/taproom-redux.git` in your terminal or GitBash
 * Navigate to the downloaded folder using `cd` command
 * Execute the `code .` command in your terminal and it will open all source code in your code editor
 
 ###  *View website*
 A GitHub page is not available for this project. To view functionality in your browser:
-* Navigate to the **'taproom'** folder in your terminal
+* Navigate to the **'taproom-redux'** folder in your terminal
 * Enter `npm install`
 * enter `npm run start`
 * Open your browser and visit http://localhost:3000
