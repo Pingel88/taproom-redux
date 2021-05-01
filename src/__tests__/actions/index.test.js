@@ -33,4 +33,11 @@ describe ('Taproom actions', () => {
       id: 'abc-123'
     });
   });
+
+  it('selectKeg should create SELECT_KEG action', () => {
+    expect(actions.selectKeg('abc-123')).toEqual({
+      type: 'SELECT_KEG',
+      id: 'abc-123'
+    });
+  });
 });
