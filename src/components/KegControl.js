@@ -8,13 +8,6 @@ import * as a from './../actions';
 
 class KegControl extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedKeg: null
-    };
-  }
-
   handleClick = () => {
     const { dispatch } = this.props;
     if (this.props.selectedKeg != null) {
@@ -35,9 +28,10 @@ class KegControl extends React.Component {
   }
 
   handleChangingSelectedKeg = (id) => {
-    console.log("clicked");
-    const { dispatch } = this.props;
-    const action = a.selectKeg(id);
+    const { dispatch, mainKegList } = this.props;
+    // const kegList = this.props.mainKegList;
+    const action = a.selectKeg(id, mainKegList);
+    // console.log(mainKegList[id].name);
     dispatch(action);
   }
 
@@ -101,7 +95,8 @@ KegControl.propTypes = {
 const mapStateToProps = state => {
   return {
     mainKegList: state.mainKegList,
-    formVisibleOnPage: state.formVisibleOnPage
+    formVisibleOnPage: state.formVisibleOnPage,
+    selectedKeg: state.selectedKeg
   }
 }
 
