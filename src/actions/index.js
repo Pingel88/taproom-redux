@@ -27,3 +27,7 @@ export const selectKeg = (id, kegList) => ({
   kegList: kegList,
   id: id
 });
+
+export const deselectKeg = () => ({
+  type: c.DESELECT_KEG
+});

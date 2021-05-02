@@ -7,6 +7,9 @@ export default (state = null, action) => {
       const selectedKeg = kegList[id];
       return selectedKeg;
 
+    case c.DESELECT_KEG:
+      return null;
+
     default:
       return state;
   }

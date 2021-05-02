@@ -41,8 +41,8 @@ describe ('Taproom actions', () => {
     });
   });
 
-  it('deselectKeg should create DESELECT_KEG action' () => {
-    expect(actions.deselectKeg().toEqual{
+  it('deselectKeg should create DESELECT_KEG action', () => {
+    expect(actions.deselectKeg()).toEqual({
       type: 'DESELECT_KEG'
     });
   });
