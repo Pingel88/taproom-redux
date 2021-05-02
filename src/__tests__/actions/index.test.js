@@ -46,4 +46,10 @@ describe ('Taproom actions', () => {
       type: 'DESELECT_KEG'
     });
   });
+
+  it('removePint should create REMOVE_PINT action', () => {
+    expect(actions.removePint()).toEqual({
+      type: 'REMOVE_PINT'
+    });
+  });
 });
