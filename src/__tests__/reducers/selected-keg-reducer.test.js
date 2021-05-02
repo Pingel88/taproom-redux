@@ -43,4 +43,19 @@ describe('selectedKegReducer', () => {
       id: 'xyz-890'
     });
   });
+
+  test('Should successful clear keg selection', () => {
+    const selectedKeg = {
+      name: 'SelectBeer',
+      brand: 'Selectweiser',
+      price: 4.99,
+      alcoholContent: 99,
+      pintsRemaining: 124,
+      id: 'xyz-890'
+    };
+    action = {
+      type: c.DESELECT_KEG
+    };
+    expect(selectedKegReducer(selectedKeg, action)).toEqual(null);
+  })
 });
