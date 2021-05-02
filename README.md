@@ -32,6 +32,69 @@ A GitHub page is not available for this project. To view functionality in your b
 * enter `npm run start`
 * Open your browser and visit http://localhost:3000
 
+### 📋 Specs:
+<details>
+<summary>Action Creator Tests</summary>
+
+| # | Behavior | Input |  Output | Complete |
+| :------------- | :------------- | :------------- | :------------ | :-------------: |
+| 01 | deleteKeg creates DELETE_KEG action | `deleteKeg()` | `action.type: 'DELETE_KEG'` | ✅ |
+| 02 | toggleForm creates TOGGLE_FORM action | `toggleForm()` | `action.type: 'TOGGLE_FORM'` | ✅ |
+| 03 | addKeg creates ADD_KEG action | `addKeg()` | `action.type: 'ADD_KEG'` | ✅ |
+| 04 | selectKeg creates SELECT_KEG action | `selectKeg()` | `action.type: 'SELECT_KEG'` | ✅ |
+| 05 | deselectKeg creates DESELECT_KEG action | `deselectKeg()` | `action.type: 'DESELECT_KEG'` | ✅ |
+| 06 | removePint creates REMOVE_PINT action | `removePint()` | `action.type: 'REMOVE_PINT'` | ✅ |
+
+</details>
+
+<details>
+<summary>Keg List Reducer Tests</summary>
+
+| # | Behavior | Input/Action |  Output | Complete |
+| :------------- | :------------- | :------------- | :------------ | :-------------: |
+| 01 | Return default state if no action type | `kegListReducer({}, {type: null})` | Default state | ✅ |
+| 02 | Add new keg to mainKegList | `c.ADD_KEG` | Keg added | ✅ |
+| 03 | Delete keg from list | `c.DELETE_KEG` | Keg removed | ✅ |
+| 04 | Remove pint from keg | `c.REMOVE_PINT` | One pint removed | ✅ |
+
+</details>
+
+<details>
+<summary>Selected Keg Reducer Tests</summary>
+
+| # | Behavior | Input/Action |  Output | Complete |
+| :------------- | :------------- | :------------- | :------------ | :-------------: |
+| 01 | Return default state if no action type | `selectedKegReducer({}, {type: null})` | Default state | ✅ |
+| 02 | Select a keg from mainKegList | `c.SELECT_KEG` | Keg selected | ✅ |
+| 03 | Remove a keg from selection | `c.DESELECT_KEG` | Selection cleared | ✅ |
+
+</details>
+
+<details>
+<summary>Form Visible Reducer Tests</summary>
+
+| # | Behavior | Input/Action |  Output | Complete |
+| :------------- | :------------- | :------------- | :------------ | :-------------: |
+| 01 | Return default state if no action type | `formVisibleReducer({}, {type: null})` | Default state | ✅ |
+| 02 | Add new keg to mainKegList | `c.TOGGLE_FORM` | Form toggled | ✅ |
+
+</details>
+
+<details>
+<summary>Root Reducer Tests</summary>
+
+| # | Behavior | Input |  Output | Complete |
+| :------------- | :------------- | :------------- | :------------ | :-------------: |
+| 01 | Return default state if no action type | `rootReducer({}, {type: null})` | Default state | ✅ |
+| 02 | Check initial state of kegListReducer vs rootReducer's store | `store.getState().mainKegList` | Matches `kegListReducer(undefined, {type: null})`| ✅ |
+| 03 | Check initial state of formVisibleReducer vs rootReducer's store | `store.getState().formVisibleOnPage` | Matches `formVisibleReducer(undefined, {type: null})` | ✅ |
+| 04 | Check initial state of selectedKegReducer vs rootReducer's store | `store.getState().selectedKeg` | Matches `selectedKegReducer(undefined, {type: null})` | ✅ |
+| 05 | Check ADD_KEG action works for kegListReducer and rootReducer | `store.getState().mainKegList` | Matches output from kegListReducer | ✅ |
+| 06 | Check TOGGLE_FORM action works for formVisibleReducer and rootReducer | `store.getState().formVisibleOnPage` | Matches output from formVisibleReducer | ✅ |
+| 06 | Check SELECT_KEG action works for selectKegReducer and rootReducer | `store.getState().selectedKeg` | Matches output from selectedKegReducer | ✅ |
+
+</details>
+
 ## *Technologies used*
 * React
 * Redux
