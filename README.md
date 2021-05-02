@@ -95,6 +95,10 @@ A GitHub page is not available for this project. To view functionality in your b
 
 </details>
 
+#### Running Tests:
+* To run tests, verify you are in the root project folder and enter `npm install` in your terminal if not already completed.
+* Run `npm run test` to perform the tests.
+
 ## *Technologies used*
 * React
 * Redux
