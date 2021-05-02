@@ -32,6 +32,7 @@ export const deselectKeg = () => ({
   type: c.DESELECT_KEG
 });
 
-export const removePint = () => ({
-  type: c.REMOVE_PINT
+export const removePint = (id) => ({
+  type: c.REMOVE_PINT,
+  id: id
 });
