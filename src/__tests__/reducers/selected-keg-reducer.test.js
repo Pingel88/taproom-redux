@@ -31,9 +31,10 @@ describe('selectedKegReducer', () => {
   test('Should successfully select a keg', () => {
     action = {
       type: c.SELECT_KEG,
+      kegList: currentState,
       id: 'xyz-890'
     };
-    expect(selectedKegReducer(currentState, action)).toEqual({
+    expect(selectedKegReducer({}, action)).toEqual({
       name: 'SelectBeer',
       brand: 'Selectweiser',
       price: 4.99,
