@@ -76,4 +76,27 @@ describe('kegListReducer', () => {
       }
     });
   });
+
+  test('Should successfully remove a pint from pintsRemaining', () => {
+    const { name, brand, price, alcoholContent, pintsRemaining, id } = kegData;
+    action = {
+      type: c.REMOVE_PINT,
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      pintsRemaining: pintsRemaining,
+      id: id
+    };
+    expect(kegListReducer({}, action)).toEqual({
+      [id]: {
+      name: name,
+      brand: brand,
+      price: price,
+      alcoholContent: alcoholContent,
+      pintsRemaining: 123,
+      id: id
+      }
+    });
+  });
 });
