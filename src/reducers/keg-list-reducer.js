@@ -20,6 +20,16 @@ export default (state = {}, action) => {
       delete newState[id];
       return newState;
 
+    case c.REMOVE_PINT:
+      const keg = state[id];
+      const updatedKeg = Object.assign({}, keg, {
+        pintsRemaining: keg.pintsRemaining - 1
+      });
+      const updatedState = Object.assign({}, state, {
+        [id]: updatedKeg
+      });
+      return updatedState;
+
     default:
       return state;
   }

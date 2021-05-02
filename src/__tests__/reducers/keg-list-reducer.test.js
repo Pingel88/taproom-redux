@@ -78,24 +78,26 @@ describe('kegListReducer', () => {
   });
 
   test('Should successfully remove a pint from pintsRemaining', () => {
-    const { name, brand, price, alcoholContent, pintsRemaining, id } = kegData;
     action = {
       type: c.REMOVE_PINT,
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      pintsRemaining: pintsRemaining,
-      id: id
+      id: 'abc-123'
     };
-    expect(kegListReducer({}, action)).toEqual({
-      [id]: {
-      name: name,
-      brand: brand,
-      price: price,
-      alcoholContent: alcoholContent,
-      pintsRemaining: 123,
-      id: id
+    expect(kegListReducer(currentState, action)).toEqual({
+      'abc-123': {
+        name: 'TestBeer',
+        brand: 'Testweiser',
+        price: 6.99,
+        alcoholContent: 7,
+        pintsRemaining: 123,
+        id: 'abc-123'
+      },
+      'xyz-890': {
+        name: 'DeleteBeer',
+        brand: 'Deleteweiser',
+        price: 4.99,
+        alcoholContent: 99,
+        pintsRemaining: 124,
+        id: 'xyz-890'
       }
     });
   });
