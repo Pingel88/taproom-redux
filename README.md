@@ -25,14 +25,14 @@ ___
 * Navigate to the downloaded folder using `cd` command
 * Execute the `code .` command in your terminal and it will open all source code in your code editor
 
-###  *View website*
+### *View website*
 A GitHub page is not available for this project. To view functionality in your browser:
 * Navigate to the **'taproom-redux'** folder in your terminal
 * Enter `npm install`
 * enter `npm run start`
 * Open your browser and visit http://localhost:3000
 
-### 📋 Specs:
+### *Specs*
 <details>
 <summary>Action Creator Tests</summary>
 
