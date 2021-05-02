@@ -40,4 +40,10 @@ describe ('Taproom actions', () => {
       id: 'abc-123'
     });
   });
+
+  it('deselectKeg should create DESELECT_KEG action' () => {
+    expect(actions.deselectKeg().toEqual{
+      type: 'DESELECT_KEG'
+    });
+  });
 });
